@@ -1,5 +1,3 @@
-package ru.geekbrains.ads.lesson2;
-
 import java.util.Arrays;
 
 public class ArrayImpl<E extends Comparable<? super E>> implements Array<E> {

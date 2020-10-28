@@ -1,5 +1,3 @@
-package ru.geekbrains.ads.lesson2;
-
 public class MyCustomArrayIndexOutOfBoundsException extends RuntimeException {
 
     public MyCustomArrayIndexOutOfBoundsException(int index, int size) {

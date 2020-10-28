@@ -1,5 +1,3 @@
-package ru.geekbrains.ads.lesson2;
-
 public interface Array<E> {
 
     void add(E value);

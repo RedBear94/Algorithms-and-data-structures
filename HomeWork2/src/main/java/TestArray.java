@@ -1,4 +1,6 @@
-package ru.geekbrains.ads.lesson2;
+import org.apache.commons.lang3.time.StopWatch;
+
+import java.util.Random;
 
 public class TestArray {
 
@@ -7,27 +9,51 @@ public class TestArray {
     }
 
     private static void testDynamicArray() {
-        Array<Integer> data = new ArrayImpl<>(4);
-//        Array<Integer> data = new SortedArrayImpl<>(4);
-        data.add(5);
-        data.add(4);
-        data.add(3);
-        data.add(2);
-        data.add(1);
+        Array<Integer> data = new ArrayImpl<>(75000);
+        Array<Integer> data2 = new ArrayImpl<>(75000);
+        Array<Integer> data3 = new ArrayImpl<>(75000);
 
-        data.display();
-//        data.sortBubble();
-//        data.sortSelect();
-        data.sortInsert();
-        data.display();
+        for(int i = 0; i < 75000; i++){
+            int rand = getRandomNumber();
+            data.add(rand);
+            data2.add(rand);
+            data3.add(rand);
+        }
 
-//        data.remove(Integer.valueOf(3));
-        data.remove(2);
-        data.insert(3, 2);
-        data.display();
+//        System.out.println("data");
+//        data.display();
+//        System.out.println("data2");
+//        data2.display();
+//        System.out.println("data3");
+//        data3.display();
 
-        System.out.println("data[1] = " + data.get(1));
-        System.out.println("Find 2: " + data.contains(2));
-        System.out.println("Find 222: " + data.contains(222));
+        StopWatch stopWatch = new StopWatch();
+
+        stopWatch.start();
+        data.sortBubble();
+        stopWatch.stop();
+        System.out.println("data | Прошло времени, мс: " + stopWatch.getTime()); //
+//        data.display();
+        stopWatch.reset();
+
+        stopWatch.start();
+        data2.sortSelect();
+        stopWatch.stop();
+        System.out.println("data2 | Прошло времени, мс: " + stopWatch.getTime()); //
+//        data2.display();
+        stopWatch.reset();
+
+        stopWatch.start();
+        data3.sortInsert();
+        stopWatch.stop();
+        System.out.println("data3 | Прошло времени, мс: " + stopWatch.getTime()); //
+//        data3.display();
+        stopWatch.reset();
+    }
+
+    public static int getRandomNumber()
+    {
+        Random rnd = new Random();
+        return rnd.nextInt(1000);
     }
 }

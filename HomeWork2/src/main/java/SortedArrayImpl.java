@@ -1,5 +1,3 @@
-package ru.geekbrains.ads.lesson2;
-
 public class SortedArrayImpl<E extends Comparable<? super E>> extends ArrayImpl<E> {
 
     @SuppressWarnings("unchecked")
