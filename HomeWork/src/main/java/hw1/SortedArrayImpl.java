@@ -1,3 +1,5 @@
+package hw1;
+
 public class SortedArrayImpl<E extends Comparable<? super E>> extends ArrayImpl<E> {
 
     @SuppressWarnings("unchecked")

@@ -1,3 +1,5 @@
+package hw1;
+
 public class MyCustomArrayIndexOutOfBoundsException extends RuntimeException {
 
     public MyCustomArrayIndexOutOfBoundsException(int index, int size) {
