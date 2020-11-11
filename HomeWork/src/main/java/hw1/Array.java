@@ -1,3 +1,5 @@
+package hw1;
+
 public interface Array<E> {
 
     void add(E value);
