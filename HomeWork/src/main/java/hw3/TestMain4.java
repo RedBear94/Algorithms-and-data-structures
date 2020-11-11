@@ -9,10 +9,10 @@ import java.util.List;
 public class TestMain4 {
 
     public static void main(String[] args) {
-        testLinkedList();
+        //testLinkedList();
 //        testStack();
 //        testQueue();
-//        testForEach();
+        testForEach();
     }
 
     private static void testForEach() {
