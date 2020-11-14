@@ -6,6 +6,7 @@ public class Node<T extends Comparable<? super T>> {
 
     private Node<T> leftChild;
     private Node<T> rightChild;
+    private int depth;
 
     public Node(T value) {
         this.value = value;
@@ -17,6 +18,14 @@ public class Node<T extends Comparable<? super T>> {
 
     public Node<T> getLeftChild() {
         return leftChild;
+    }
+
+    public void setDepth(int depth) {
+        this.depth = depth;
+    }
+
+    public int getDepth() {
+        return depth;
     }
 
     public void setLeftChild(Node<T> leftChild) {

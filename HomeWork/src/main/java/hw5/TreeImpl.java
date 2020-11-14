@@ -7,6 +7,16 @@ public class TreeImpl<E extends Comparable<? super E>> implements Tree<E> {
 
     private Node<E> root;
     private int size;
+    private int depth;
+    private boolean balanced = true;
+
+    public int getDepth() {
+        return depth;
+    }
+
+    public boolean getBalanced() {
+        return balanced;
+    }
 
     @Override
     public boolean add(E value) {
@@ -14,6 +24,8 @@ public class TreeImpl<E extends Comparable<? super E>> implements Tree<E> {
 
         if (isEmpty()) {
             this.root = newNode;
+            newNode.setDepth(1);
+            depth = 1;
             size++;
             return true;
         }
@@ -27,7 +39,15 @@ public class TreeImpl<E extends Comparable<? super E>> implements Tree<E> {
         Node<E> parent = nodeAndParent.parent;
         if (parent != null) {
             parent.addChild(newNode);
+            newNode.setDepth(parent.getDepth()+1);
+            if(depth < newNode.getDepth()) {
+                depth = newNode.getDepth();
+            }
             size++;
+
+            if(balanced) {
+                balanced = isBalanced(newNode);
+            }
             return true;
         } else {
             return false;
@@ -230,7 +250,17 @@ public class TreeImpl<E extends Comparable<? super E>> implements Tree<E> {
             nBlanks /= 2;
         }
         System.out.println("................................................................");
+    }
 
+    public static boolean isBalanced(Node node) {
+        System.out.println(height(node));
+        return (node == null) ||
+                isBalanced(node.getLeftChild()) &&
+                        isBalanced(node.getRightChild()) &&
+                        Math.abs(height(node.getLeftChild()) - height(node.getRightChild())) <= 1;
+    }
 
+    private static int height(Node node) {
+        return node == null ? 0 : 1 + Math.max(height(node.getLeftChild()), height(node.getRightChild()));
     }
 }

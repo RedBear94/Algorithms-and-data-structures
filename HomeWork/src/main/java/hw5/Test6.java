@@ -4,7 +4,22 @@ public class Test6 {
 
     public static void main(String[] args) {
 //        testTree();
-        testRemoveElement();
+        //testRemoveElement();
+
+        for(int i = 0; i < 20; i++) {
+            TreeImpl<Integer> tree = new TreeImpl<>();
+            while (tree.getDepth() != 7) {
+                tree.add(rnd(-25, 25));
+            }
+            tree.display();
+            System.out.println(tree.getBalanced());
+        }
+    }
+
+    public static int rnd(int min, int max)
+    {
+        max -= min;
+        return (int) (Math.random() * ++max) + min;
     }
 
     private static void testRemoveElement() {
