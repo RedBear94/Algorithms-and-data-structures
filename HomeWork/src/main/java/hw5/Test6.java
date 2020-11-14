@@ -5,15 +5,22 @@ public class Test6 {
     public static void main(String[] args) {
 //        testTree();
         //testRemoveElement();
-
-        for(int i = 0; i < 20; i++) {
+        double counter = 0;
+        int tree_counter = 20;
+        for(int i = 0; i < tree_counter; i++) {
             TreeImpl<Integer> tree = new TreeImpl<>();
             while (tree.getDepth() != 7) {
                 tree.add(rnd(-25, 25));
             }
             tree.display();
+            tree.traverse(Tree.TraverseMode.PRE_ORDER, integer -> {});
             System.out.println(tree.getBalanced());
+            if(tree.getBalanced()){
+                counter++;
+            }
         }
+        System.out.println(counter/tree_counter * 100);
+
     }
 
     public static int rnd(int min, int max)
