@@ -18,8 +18,7 @@ public class ArrayImpl<E extends Comparable<? super E>> implements Array<E> {
     public ArrayImpl(int initialCapacity) {
         this.data = (E[]) new Comparable[initialCapacity];
     }
-
-
+    
     // O(1) -> O(n)
     @Override
     public void add(E value) {
